@@ -40,7 +40,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="S5P-4n-FNn">
                                 <rect key="frame" x="0.0" y="111" width="600" height="445"/>
                             </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Local Search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lUt-UF-q6I">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Example: Pizza or 123 Main Street" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lUt-UF-q6I">
                                 <rect key="frame" x="39" y="73" width="522" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -72,6 +72,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1118" y="1090"/>
+        </scene>
+        <!--Directions View Controller-->
+        <scene sceneID="hY4-Xl-yXe">
+            <objects>
+                <viewController id="PhW-4Z-8Ti" customClass="DirectionsViewController" customModule="MyMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dtY-8f-UNx"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xtz-AU-Ezs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Td-aC-CqS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="by0-jw-ht1">
+                                <rect key="frame" x="0.0" y="67" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pC1-FG-NRF">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Directions" id="1mM-Xh-DUy">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="wrn-u1-cTp">
+                                            <connections>
+                                                <action selector="btnback:" destination="PhW-4Z-8Ti" id="zBi-NO-mCO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtRoute" destination="by0-jw-ht1" id="dOv-WG-vUp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fBj-O8-jod" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2130" y="1795"/>
         </scene>
         <!--Results Table View Controller-->
         <scene sceneID="1wX-Ej-5R2">
@@ -126,7 +168,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQN-NE-oFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1736" y="1089"/>
+            <point key="canvasLocation" x="1852" y="1087"/>
         </scene>
         <!--Route View Controller-->
         <scene sceneID="8Fz-3Z-fsR">
@@ -143,22 +185,41 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rWd-64-h5p">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAQ-6o-dmO">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="List Directions" id="hB7-du-DxF">
+                                        <connections>
+                                            <segue destination="PhW-4Z-8Ti" kind="presentation" id="kFU-Cs-CGF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Pause" id="8VU-BM-naS">
+                                        <connections>
+                                            <action selector="btnPause:" destination="jj0-6F-Uk1" id="c3z-4J-NCM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rWd-64-h5p" firstAttribute="bottom" secondItem="VEP-it-oi1" secondAttribute="top" id="DBM-2R-fG6"/>
-                            <constraint firstItem="rWd-64-h5p" firstAttribute="top" secondItem="mh9-wf-shg" secondAttribute="top" id="GWu-0h-Qcq"/>
-                            <constraint firstAttribute="trailing" secondItem="rWd-64-h5p" secondAttribute="trailing" id="PKK-bM-Cbn"/>
-                            <constraint firstItem="rWd-64-h5p" firstAttribute="leading" secondItem="mh9-wf-shg" secondAttribute="leading" id="iTO-uc-qED"/>
+                            <constraint firstItem="rWd-64-h5p" firstAttribute="top" secondItem="mh9-wf-shg" secondAttribute="top" id="WYK-4N-17p"/>
+                            <constraint firstItem="bAQ-6o-dmO" firstAttribute="bottom" secondItem="VEP-it-oi1" secondAttribute="top" id="WlY-Vw-yOO"/>
+                            <constraint firstItem="bAQ-6o-dmO" firstAttribute="trailing" secondItem="rWd-64-h5p" secondAttribute="trailing" id="ah0-xx-kF4"/>
+                            <constraint firstItem="bAQ-6o-dmO" firstAttribute="leading" secondItem="rWd-64-h5p" secondAttribute="leading" id="gic-lV-FfU"/>
+                            <constraint firstAttribute="trailing" secondItem="rWd-64-h5p" secondAttribute="trailing" id="m5z-bR-dUZ"/>
+                            <constraint firstItem="bAQ-6o-dmO" firstAttribute="leading" secondItem="mh9-wf-shg" secondAttribute="leading" id="mb4-LI-jIe"/>
+                            <constraint firstItem="rWd-64-h5p" firstAttribute="bottom" secondItem="VEP-it-oi1" secondAttribute="top" id="oP0-Vc-4gB"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnPause" destination="8VU-BM-naS" id="5H0-CW-K7D"/>
                         <outlet property="routeMap" destination="rWd-64-h5p" id="LaS-r1-ybH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y3N-6S-ttp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2376" y="1087"/>
+            <point key="canvasLocation" x="2496" y="1087"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y2l-bn-t2b">

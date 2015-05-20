@@ -12,6 +12,7 @@
 		363966351B0B759C00F63DFC /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363966311B0B759C00F63DFC /* RouteViewController.swift */; };
 		363966361B0B759C00F63DFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363966321B0B759C00F63DFC /* ViewController.swift */; };
 		363966381B0B75BC00F63DFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363966371B0B75BC00F63DFC /* Main.storyboard */; };
+		3645366C1B0BB32D00A2CE93 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3645366B1B0BB32D00A2CE93 /* DirectionsViewController.swift */; };
 		36CE78611B0B73A1003F43A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE78601B0B73A1003F43A8 /* AppDelegate.swift */; };
 		36CE78681B0B73A1003F43A8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CE78671B0B73A1003F43A8 /* Images.xcassets */; };
 		36CE786B1B0B73A1003F43A8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CE78691B0B73A1003F43A8 /* LaunchScreen.xib */; };
@@ -34,6 +35,7 @@
 		363966311B0B759C00F63DFC /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		363966321B0B759C00F63DFC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		363966371B0B75BC00F63DFC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3645366B1B0BB32D00A2CE93 /* DirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
 		36CE785B1B0B73A1003F43A8 /* MyMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CE785F1B0B73A1003F43A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36CE78601B0B73A1003F43A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				36CE78671B0B73A1003F43A8 /* Images.xcassets */,
 				36CE78691B0B73A1003F43A8 /* LaunchScreen.xib */,
 				36CE785E1B0B73A1003F43A8 /* Supporting Files */,
+				3645366B1B0BB32D00A2CE93 /* DirectionsViewController.swift */,
 			);
 			path = MyMap;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				363966341B0B759C00F63DFC /* ResultsTableViewController.swift in Sources */,
 				36CE78611B0B73A1003F43A8 /* AppDelegate.swift in Sources */,
 				363966351B0B759C00F63DFC /* RouteViewController.swift in Sources */,
+				3645366C1B0BB32D00A2CE93 /* DirectionsViewController.swift in Sources */,
 				363966331B0B759C00F63DFC /* ResultsTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

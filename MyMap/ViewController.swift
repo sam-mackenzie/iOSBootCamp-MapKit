@@ -8,8 +8,15 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, MKMapViewDelegate {
-
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
+let locationManagers = CLLocationManager()
+    var showZoom:Bool = false
+    var showroute:String = "no"
+     let regionRadius: CLLocationDistance = 0.05
+    @IBAction func btnDirections(sender: UIBarButtonItem) {
+        showroute = "yes"
+    }
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchText: UITextField!
     var matchingItems: [MKMapItem] = [MKMapItem]()
@@ -17,16 +24,31 @@ class ViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsUserLocation = true
-        mapView.delegate = self
-    }
+      mapView.delegate = self
+        
 
+    }
+    
+    
+    
+   
     override func prepareForSegue(segue: UIStoryboardSegue, 
                     sender: AnyObject?) {
-
-        let destination = segue.destinationViewController as! 
-                        ResultsTableViewController
-
+                        
+     
+                        
+      if  showroute == "no"
+      {
+        let destination = segue.destinationViewController as!
+        ResultsTableViewController
+        
         destination.mapItems = self.matchingItems
+       }
+      else
+      {
+        showroute == "no"
+       }
+
     }
 
     @IBAction func textFieldReturn(sender: AnyObject) {
@@ -38,18 +60,56 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView!, didUpdateUserLocation
             userLocation: MKUserLocation!) {
-        mapView.centerCoordinate = userLocation.location.coordinate
+      
+
+             // mapView.centerCoordinate = userLocation.location.coordinate
+            if showZoom == true
+                {
+                    let userLocation = mapView.userLocation
+                    
+                    let region = MKCoordinateRegionMakeWithDistance(
+                        userLocation.location.coordinate, 2000, 2000)
+                    
+                    mapView.setRegion(region, animated: true)
+                    //mapView.centerCoordinate = userLocation.location.coordinate
+                }
+                else
+                {
+                    let userLocation = mapView.userLocation
+                    
+                    let region = MKCoordinateRegionMakeWithDistance(
+                        userLocation.location.coordinate, 10000, 10000)
+                    
+                    mapView.setRegion(region, animated: true)
+                    // mapView.centerCoordinate = userLocation.location.coordinate
+                }
+        
     }
 
     
     @IBAction func zoomIn(sender: AnyObject) {
-        let userLocation = mapView.userLocation
+        if showZoom == false
+        {
+            showZoom = true
+            let userLocation = mapView.userLocation
+            
+            let region = MKCoordinateRegionMakeWithDistance(
+                userLocation.location.coordinate, 2000, 2000)
+            
+            mapView.setRegion(region, animated: true)
 
-        let region = MKCoordinateRegionMakeWithDistance(
-            userLocation.location.coordinate, 2000, 2000)
-
-        mapView.setRegion(region, animated: true)
-
+        }
+        else
+        {
+            showZoom = false
+            let userLocation = mapView.userLocation
+            
+            let region = MKCoordinateRegionMakeWithDistance(
+                userLocation.location.coordinate, 10000, 10000)
+            
+            mapView.setRegion(region, animated: true)
+        }
+        
     }
     
     @IBAction func changeMaptype(sender: AnyObject) {
